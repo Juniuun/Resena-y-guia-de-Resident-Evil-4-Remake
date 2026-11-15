@@ -55,7 +55,7 @@ Esta opción si no lo piensas mucho te puede resultar ser la más fácil y la qu
 
 Esta estrategia además de ser la que siempre aplico en mis partidas, es también la que optan todos los *speedrunners* profecionales del videojuego, ya que con ella te salvas tiempo y sabes hacer un *pathing* en donde recojas todos los recursos posibles y te ahorres recibir daño, por eso dejo aquí la siguiente imágen con todas las marcas de objetos importantes y el pathing que sigo yo para recoger recursos al menos al inicio de la oleada.
 
-![mapa]()
+![mapa](media/mapaPlaza.jpg)
 
 Cabe recalcar que para pasarse esta sección en modo profesional tienes que matar un total de $15 \text{ enemigos}$
 
