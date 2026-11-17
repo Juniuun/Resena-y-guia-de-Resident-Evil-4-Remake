@@ -1,4 +1,10 @@
-# Reseña y guía de Resident Evil 4 Remake
+<table align="center" width="100%" style="background-color: #8B0000; border-radius: 8px;">
+  <tr>
+    <td align="center" style="padding: 15px;">
+      <h1 style="margin: 0; color: #F5F5DC;">Reseña y guía de Resident Evil 4 Remake</h1>
+    </td>
+  </tr>
+</table>
 
 ## Índice
 
@@ -198,11 +204,57 @@ Ya sabiendo de antemano todo lo anteriormente mencionado en este **README**, aqu
 
 Además de dejar un diagrama con **mis tiempos** y detalles importantes que merecen la pena resaltar como la compra de lanzacohetes para acabar con ciertos *bosses* de manera eficaz.
 
-(aqui va la tabla)
+```mermaid
+gantt
+    title Run S+ Profesional - Tiempo final: 04:27:05
+    dateFormat  HH:mm
+    axisFormat  %H:%M
 
+    section Capítulos
+    Cap. 1                                :c1, 00:00, 14m
+    Cap. 2                                :c2, after c1, 9m
+    Cap. 3                                :c3, after c2, 16m
+    Cap. 4                                :c4, after c3, 23m
+    Cap. 5                                :c5, after c4, 17m
+    Save                                  :crit, s5, 01:18, 0m
+    Cap. 6                                :c6, after c5, 14m
+    Save                                  :crit, s6, 01:35, 0m
+    Ticket de mejora                      :crit, t1, 00:22, 0m
+    Cap. 7                                :c7, after c6, 16m
+    Save                                  :crit, s7, 01:50, 0m
+    Cap. 8                                :c8, after c7, 18m
+    Save                                  :crit, s8, 02:05, 0m
+    Cap. 9                                :c9, after c8, 17m
+    Cap. 10                               :c10, after c9, 19m
+    Save                                  :crit, s10, 02:25, 0m
+    Cap. 11                               :c11, after c10, 18m
+    Save                                  :crit, s11a, 02:40, 0m
+    Save                                  :crit, s11b, 02:50, 0m
+    Cap. 12                               :c12, after c11, 16m
+    Save                                  :crit, s12, 03:05, 0m
+    Huevo                                 :crit, h1, 03:02, 0m
+    Cap. 13                               :c13, after c12, 14m
+    Save                                  :crit, s13a, 03:20, 0m
+    Save                                  :crit, s13b, 03:30, 0m
+    Cap. 14                               :c14, after c13, 16m
+    Save                                  :crit, s14, 03:45, 0m
+    Lanzacohetes                          :crit, l1, 03:52, 0m
+    Cap. 15                               :c15, after c14, 15m
+    Save                                  :crit, s15, 04:00, 0m
+    Lanzacohetes                          :crit, l2, 04:10, 0m
+    Cap. 16                               :c16, after c15, 12m
+    Save                                  :crit, s16, 04:15, 0m
+    Rango S+                              :crit, k2, 04:27, 0m
+```
+<!--La mayoría del cronometraje de este diagrama son estipulados y no totalmente reales ya que no guardo registro de mis tiempos por capítulo, pero el tiempo total si son 04:27-->
 Dicho esto, ***Resident Evil 4 Remake*** se puede considerar un juego al que le tienes que hechar bastantes horas comparados a otros de sus títulos, como ***Resident Evil Requiem*** que requiere de menos tiempo para platinar; pero no por ello lo hace imposible de completar, se consideraría un juego desafiante y que requiera de horas de juego, pero divertido en su proceso.
 
-Además de que una vez terminado, la comunidad de modding de este juego es bastante activa, como sucede como su versión original, por lo que una vez visto todo el contenido (incluyendo el DLC *Separate ways* que cuenta también con sus rangos de dificultad y clasificaciones; y el modo gratuito de mercenarios), puede que te guste lo que la comunidad pueda ofrecer, siempre que tengas ganas de más
+Además de que una vez terminado, la comunidad de modding de este juego es bastante activa, como sucede como su versión original, por lo que una vez visto todo el contenido (incluyendo el DLC *Separate ways* que cuenta también con sus rangos de dificultad y clasificaciones; y el modo gratuito de mercenarios), puede que te guste lo que la comunidad pueda ofrecer, siempre que tengas ganas de más.
 
-
-¡Gloria a las Plagas!
+<p align="center">
+  <img src="media/plagas.png" alt="Emblema de Los Iluminados" width="80" align="middle">
+  &nbsp;
+  <strong style="color:#8B0000; font-size:1.3em; vertical-align:middle;">¡Gloria a las Plagas!</strong>
+  &nbsp;
+  <img src="media/plagas.png" alt="Emblema de Los Iluminados" width="80" align="middle">
+</p>
