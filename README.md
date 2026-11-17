@@ -38,7 +38,14 @@ Con esta frase comienza la historia de esta entrega de *Resident Evil* dejando e
 
 ## [🦴 2. Argumento y Supervivencia](#índice)
 
+### Personajes principales
 
+| Imagen | Personaje | Descripción breve | Facción |
+| :---: | :--- | :--- | :--- |
+| ![Leon](https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRtv0gSr6boEgAPFFtDtfBCW2j5UgYSYKrwjB1_1HpxadtreH4d2PY-b6s&s=10) | **Leon S. Kennedy** | Superviviente de Raccoon City y agente del gobierno de EE. UU. Enviado a España para rescatar a Ashley, combina su entrenamiento policial con una determinación inquebrantable. | Gobierno de los Estados Unidos |
+| ![Ashley](https://www.svg.com/img/gallery/gorgeous-performers-behind-resident-evil-4-ashley/intro-1771950675.jpg) | **Ashley Graham** | Hija del presidente de los Estados Unidos. Secuestrada por Los Iluminados para ser usada como peón en sus planes, deberá confiar en Leon para sobrevivir y volver a casa. | Civil (secuestrada) |
+| ![Luis](https://i.redd.it/ve8p12y6jshb1.jpg) | **Luis Serra** | Ex-investigador de Umbrella. Atormentado por su pasado, busca redimirse ayudando a Leon y Ashley a combatir las Plagas, proporcionando información clave sobre el parásito. | Independiente (ex-Umbrella) |
+| ![Ada](https://i.blogs.es/3ce864/ada-wong-resident-evil-4-remake/840_560.jpeg) | **Ada Wong** | Misteriosa espía que se cruza en el camino de Leon. Sus motivos y su lealtad son ambiguos, y siempre parece estar un paso por delante, persiguiendo sus propios objetivos. | Independiente (contratada por Albert Wesker) |
 
 ---
 
