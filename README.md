@@ -93,6 +93,151 @@ Aquí tienes las combinaciones más efectivas y sus multiplicadores, según el n
 
 ## [🔫 3. Mecánicas, Combate y Arsenal](#índice)
 
+### Inteligencia Artificial (IA) y Lógica de los NPCs
+
+En el desarrollo de *Resident Evil 4 Remake*, los enemigos y los acompañantes están controlados por sistemas de Inteligencia Artificial basados en **Máquinas de Estados Finitos (FSM)**. La RE Engine evalúa constantemente variables como la distancia, la línea de visión y el inventario del jugador para ejecutar una acción u otra.
+
+Aquí tienes una simulación de cómo podría ser el código oculto tras las IAs más importantes del juego.
+
+>[!NOTE]
+>A continuación todas las líneas de código no son sacadas del propio juego, tómalo como guías visuales para entender el comportamiento de los personajes y enemigos.
+
+- #### La IA de Ashley
+A diferencia del juego original, Ashley en el Remake no se queda quieta esperando. Su IA está diseñada para mantener una distancia de seguridad y evitar ser capturada. Si Leon apunta en su dirección, ella se agacha automáticamente para no recibir fuego amigo, y si un enemigo se acerca demasiado, entra en estado de pánico.
+
+```csharp
+// Lógica de evasión de Ashley
+void ActualizarAshley(float distanciaLeon, bool leonApuntando, int enemigosCerca) {
+    
+    // Si Leon apunta cerca, Ashley se agacha para no bloquear el tiro
+    if (leonApuntando && distanciaLeon < 8.0f) {
+        CambiarEstado("Agacharse_Evadir_Fuego");
+    } 
+    // Si un enemigo está muy cerca, ella retrocede y esquiva
+    else if (enemigosCerca > 0 && distanciaLeon < 5.0f) {
+        CambiarEstado("Retroceder_Panico");
+    } 
+    // Si no hay peligro, se mantiene a una distancia segura
+    else {
+        CambiarEstado("Mantener_Distancia_Segura");
+    }
+}
+```
+
+- #### La IA de los Ganados
+La IA de los aldeanos infectados tiene dos objetivos principales: dañar a Leon o secuestrar a Ashley. Si Ashley está en su línea de visión, su lógica de pathfinding prioriza ir a por ella, ignorando a Leon si es posible. Además, si detectan a Leon por la espalda, ejecutan una animación de agarre para inmovilizarlo.
+
+```python
+import random
+
+# Definimos los tipos de Plaga que puede tener un Ganado
+class TipoPlaga:
+    NINGUNA = 0
+    GUADANA = 1  # Plaga que saca cuchillas de la cabeza
+    CIEGA = 2    # Plaga que te agarra y te saca los ojos (instakill sin cuchillo)
+
+def actualizar_ganado(distancia_leon, distancia_ashley, leon_de_espaldas, bala_cerca, inventario_ganado):
+    
+    # 1. Evasión de disparos
+    if bala_cerca and random.random() < 0.30: # 30% de probabilidad de esquivar
+        return "Esquivar_Bala_Agacharse"
+        
+    # 2. Prioridad de secuestro
+    if distancia_ashley < 10.0:
+        return "Perseguir_y_Secuestrar_Ashley"
+    
+    # 3. Ataque por la espalda
+    elif leon_de_espaldas and distancia_leon < 3.0:
+        return "Agarre_Por_La_Espalda_Inmovilizar"
+        
+    # 4. Lanzamiento de objetos (solo si el objeto es arrojable)
+    elif distancia_leon > 10.0 and distancia_leon < 20.0:
+        if inventario_ganado.tiene_objeto() and inventario_ganado.objeto_actual.es_arrojable:
+            return "Lanzar_Objeto_Contundente"
+            
+    # 5. Ataque cuerpo a cuerpo
+    elif distancia_leon < 15.0:
+        return "Perseguir_y_Atacar_Leon"
+        
+    else:
+        return "Patrullar"
+
+# Lógica al morir el enemigo (Mutación por Plaga)
+def al_morir_ganado(tipo_plaga):
+    if tipo_plaga == TipoPlaga.GUADANA:
+        ejecutar_animacion("Brotes_Guadana")
+        # El enemigo sigue vivo y ataca con cuchillas
+    elif tipo_plaga == TipoPlaga.CIEGA:
+        ejecutar_animacion("Cabeza_Torcida")
+        # Si te agarra y no tienes cuchillo, es instakill
+
+```
+
+- #### La IA de Luis Serra
+Luis es el NPC más complejo porque actúa como soporte dinámico. Su IA analiza el inventario de Leon para darle el recurso que más necesita (por ejemplo, si a Leon le quedan pocas balas de pistola, Luis le lanzará munición de pistola). Además, tiene la capacidad de inmovilizar a los enemigos para que Leon pueda rematarlos.
+
+```python
+# Script de soporte de Luis en combate
+def actualizar_luis(municion_leon_pistola, enemigos_vivos):
+    if municion_leon_pistola <= 10:
+        lanzar_objeto("Municion_Pistola")
+    
+    for enemigo in enemigos_vivos:
+        if enemigo.esta_cerca_de_leon and not enemigo.esta_inmovilizado:
+            # Luis inmoviliza al enemigo para que Leon lo remate
+            enemigo.ejecutar_agarre("Inmovilizado_Por_Luis")
+            print("¡Luis ha inmovilizado a un enemigo!")
+```
+
+### El sistema de botín (Loot) y el "Director" del juego
+
+En *Resident Evil 4 Remake*, el botín no es completamente aleatorio. El juego combina una **matriz base de probabilidades** con un sistema dinámico llamado **Drop Adaptativo** (o *Director*) que analiza tu estado en tiempo real.
+
+#### 1. La matriz base de Cajas y Enemigos
+Para empezar, el juego define una tabla estática de qué tipos de objetos pueden salir de las cajas y de los enemigos. Podemos representar esta tabla como una matriz \(M\), donde las filas son las fuentes (Caja, Enemigo) y las columnas son los tipos de objeto (Munición, Hierba, Dinero, **Espinela** y Nada):
+
+$$
+M = \begin{bmatrix}
+0.35 & 0.20 & 0.25 & 0.002 & 0.198 \\
+0.40 & 0.05 & 0.30 & 0.001 & 0.249
+\end{bmatrix}
+\begin{matrix} \leftarrow \text{Caja} \\ \leftarrow \text{Enemigo} \end{matrix}
+$$
+
+*(Nota: Los valores son estimaciones basadas en el juego y el datamining, pero la proporción es la clave).*
+
+Si definimos un vector de valor $(V = [\text{Munición}, \text{Hierba}, \text{Dinero}, \text{Espinela}, \text{Nada}])$, podemos calcular el **valor esperado** de romper una caja o matar a un enemigo multiplicando la matriz por el vector de valor:
+
+$$
+E = M \times V^T = \begin{bmatrix}
+(0.35 \times V_{\text{Mun}}) + (0.20 \times V_{\text{Hie}}) + \dots \\
+(0.40 \times V_{\text{Mun}}) + (0.05 \times V_{\text{Hie}}) + \dots
+\end{bmatrix}
+$$
+
+Matemáticamente, **romper cajas** suele dar un valor esperado más alto que matar enemigos, ya que la probabilidad de obtener recursos útiles es más equilibrada. 
+
+> [!NOTE]
+> **El "milagro" de la Espinela:** Como puedes ver en la matriz, la probabilidad de que un enemigo o una caja suelten una espinela es **ínfima** (apenas un 0.1%). Sin embargo, ese pequeño porcentaje existe. Si tienes la suerte de que te caiga una, tendrás alguna espinela extra para el Ticket de mejora o algo más que te ofrezca el buhonero.
+
+#### 2. El Drop Adaptativo (El "Director")
+Aquí está la magia: la matriz \(M\) no es fija. El juego tiene un sistema llamado *Director* que modifica dinámicamente esos pesos (\(w_k\)) basándose en tu salud (\(S\)) y tu munición (\(A\)). 
+
+Podemos modelar la probabilidad final \(P(\text{Ítem})\) como la suma de los pesos base modificados por un factor de ajuste dinámico \(f_k\):
+
+$$
+P(\text{Ítem}) = \sum_{k=1}^{n} w_k \cdot f_k(S, A)
+$$
+
+*   **Si tu salud \(S\) tiende a 0:** El factor de ajuste para las hierbas se dispara, haciendo que las cajas y los enemigos suelten curas con mayor frecuencia.
+$$
+\lim_{S \to 0} f_{\text{hierba}}(S) = \infty
+$$
+*   **Si te quedas sin munición de un arma:** El factor para ese tipo de bala aumenta, evitando que te quedes estancado.
+
+> [!WARNING]
+> **El "castigo" al acumulador:** El Director también funciona a la inversa. Si tienes el inventario lleno de munición, el juego reduce drásticamente la probabilidad de soltar más balas (el factor \(f_k\) se vuelve muy pequeño). Por eso, en una run de S+, es mejor **no acumular** en exceso; mantén tu inventario en un punto medio para que el juego siga generando recursos útiles tanto en cajas como en enemigos.
+
 ---
 
 ## [📖 4. Trucos que te ayudarán en dificultades altas](#índice)
@@ -234,6 +379,29 @@ flowchart LR
     E -->|"Canje: 30 espinelas"| T["Ticket de mejora"]
 ```
 La manera más óptima de conseguir el ticket es asegurarnos de hacer **todas** las peticiones del buhonero del pueblo, ya que con ellas una vez llegamos a la parte del castillo el buhonero ya nos la venderá y tendremos las espinelas justas y necesarias.
+
+### La gestión de las hierbas (Función a trozos)
+
+En una run de S+ o en Profesional, el inventario es oro y no siempre merece la pena curarse. El juego nos obliga a tomar decisiones rápidas sobre qué hacer con las hierbas. Podemos definir la acción óptima a tomar \(C(s, i)\) basándonos en tu salud actual (\(s\)), tu salud máxima (\(S_{\text{max}}\)) y el inventario disponible (\(i\)):
+
+$$
+C(s, i) = \begin{cases} 
+\text{Usar Hierba Verde (x1)} & \text{si } s \leq 0.30 \text{ y } i = \text{Verde} \\
+\text{Combinar (Verde + Roja)} & \text{si } 0.30 < s \leq 0.60 \\
+\text{Combinar (Verde + Roja + Amarilla)} & \text{si } s > 0.60 \text{ y } S_{\text{max}} < \text{tope} \\
+\text{Combinar (3x Verde)} & \text{si } s \leq 0.60 \text{ y no hay rojas} \\
+\text{No curarse} & \text{si } s > 0.60 \text{ y } S_{\text{max}} = \text{tope}
+\end{cases}
+$$
+
+Entender esta función es lo que te permite optimizar el espacio en el maletín y sobrevivir a los momentos más críticos:
+
+-   **Primer caso $((s \leq 0.30))$:** Si tu salud está en rojo (por debajo del 30%), usar una hierba verde sola te sacará del estado de "peligro crítico". En este estado, los enemigos pueden hacerte *instakill* con ciertos agarres, así que es la prioridad número uno.
+-   **Segundo caso $((0.30 < s \leq 0.60))$:** Si estás a media salud, es matemáticamente más rentable combinar una verde con una roja para curarte al 100% y evitar que un solo golpe te vuelva a dejar en crítico.
+-   **Tercer caso $((s > 0.60)$ y $(S_{\text{max}})$ no está al máximo):** Si tienes buena salud pero te queda margen para aumentar la barra, **usa la hierba amarilla**. Combinar Verde + Roja + Amarilla no solo te cura al 100%, sino que aumenta permanentemente tu salud máxima. Es el mejor uso posible para las amarillas.
+-   **Cuarto caso $(3x Verde)$:** Si no tienes hierbas rojas (o no tienes espacio) pero necesitas curarte mucho, recuerda que **3 hierbas verdes combinadas curan el 100% de la salud**. Es una opción excelente si estás en apuros y no quieres gastar una roja.
+-   **Quinto caso $((s > 0.60)$ y $(S_{\text{max}})$ al máximo):** Si estás por encima del 60% de salud y ya has mejorado tu barra al máximo, **no te cures**. Gastar una hierba cuando estás al 70% es un desperdicio de recursos que necesitarás para el jefe de la zona.
+
 
 ### Extras convenientes que nos facilitarán la run
 
