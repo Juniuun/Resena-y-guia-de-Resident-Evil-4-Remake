@@ -1,6 +1,6 @@
-<table align="center" width="100%" style="background-color: #8B0000; border-radius: 8px;">
+<table align="center" width="100%">
   <tr>
-    <td align="center" style="padding: 15px;">
+    <td style="text-align: center; padding: 15px; background-color: #8B0000; border-radius: 8px;">
       <h1 style="margin: 0; color: #F5F5DC;">Reseña y guía de Resident Evil 4 Remake</h1>
     </td>
   </tr>
@@ -229,11 +229,15 @@ $$
 P(\text{Ítem}) = \sum_{k=1}^{n} w_k \cdot f_k(S, A)
 $$
 
-*   **Si tu salud \(S\) tiende a 0:** El factor de ajuste para las hierbas se dispara, haciendo que las cajas y los enemigos suelten curas con mayor frecuencia.
+-   **Si tu salud \(S\) tiende a 0:** El factor de ajuste para las hierbas se dispara, haciendo que las cajas y los enemigos suelten curas con mayor frecuencia.
+
+
 $$
 \lim_{S \to 0} f_{\text{hierba}}(S) = \infty
 $$
-*   **Si te quedas sin munición de un arma:** El factor para ese tipo de bala aumenta, evitando que te quedes estancado.
+
+
+-   **Si te quedas sin munición de un arma:** El factor para ese tipo de bala aumenta, evitando que te quedes estancado.
 
 > [!WARNING]
 > **El "castigo" al acumulador:** El Director también funciona a la inversa. Si tienes el inventario lleno de munición, el juego reduce drásticamente la probabilidad de soltar más balas (el factor \(f_k\) se vuelve muy pequeño). Por eso, en una run de S+, es mejor **no acumular** en exceso; mantén tu inventario en un punto medio para que el juego siga generando recursos útiles tanto en cajas como en enemigos.
@@ -413,6 +417,7 @@ Entender esta función es lo que te permite optimizar el espacio en el maletín 
 | Sombrero de gallina | Accesorio (Leon) | Completar la historia en Hardcore o Profesional con rango S+ (menos de 5h 30min) y comprarlo por 2500 CP | Media (reduce bastante el daño recibido) |
 | Cuchillo Primario (Primal Knife) | Arma (cuchillo) | Destruir los 16 Castellanos Mecánicos y comprarlo en la Tienda de Contenido Extra por 1000 CP | Media (se vuelve **indestructible** con el ticket de mejora, o tenerlo como un cuchillo extra junto al cuchillo inicial) |
 
+---
 
 ## [🏆 5. Veredicto y Conclusión](#índice)
 
