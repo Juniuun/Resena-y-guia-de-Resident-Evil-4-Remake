@@ -40,12 +40,54 @@ Con esta frase comienza la historia de esta entrega de *Resident Evil* dejando e
 
 ### Personajes principales
 
+Como es propio de esta franquicia, **Capcom** nos presenta a los siguientes personajes a lo largo de la aventura.
+
 | Imagen | Personaje | Descripción breve | Facción |
 | :---: | :--- | :--- | :--- |
 | ![Leon](https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRtv0gSr6boEgAPFFtDtfBCW2j5UgYSYKrwjB1_1HpxadtreH4d2PY-b6s&s=10) | **Leon S. Kennedy** | Superviviente de Raccoon City y agente del gobierno de EE. UU. Enviado a España para rescatar a Ashley, combina su entrenamiento policial con una determinación inquebrantable. | Gobierno de los Estados Unidos |
 | ![Ashley](https://www.svg.com/img/gallery/gorgeous-performers-behind-resident-evil-4-ashley/intro-1771950675.jpg) | **Ashley Graham** | Hija del presidente de los Estados Unidos. Secuestrada por Los Iluminados para ser usada como peón en sus planes, deberá confiar en Leon para sobrevivir y volver a casa. | Civil (secuestrada) |
 | ![Luis](https://i.redd.it/ve8p12y6jshb1.jpg) | **Luis Serra** | Ex-investigador de Umbrella. Atormentado por su pasado, busca redimirse ayudando a Leon y Ashley a combatir las Plagas, proporcionando información clave sobre el parásito. | Independiente (ex-Umbrella) |
 | ![Ada](https://i.blogs.es/3ce864/ada-wong-resident-evil-4-remake/840_560.jpeg) | **Ada Wong** | Misteriosa espía que se cruza en el camino de Leon. Sus motivos y su lealtad son ambiguos, y siempre parece estar un paso por delante, persiguiendo sus propios objetivos. | Independiente (contratada por Albert Wesker) |
+
+### Tesoros
+
+Una vez nos hemos familiarizado con los personajes principales del juego, podemos pasar a una mecánica rescatada de la versión original: la combinación de tesoros para multiplicar su valor. 
+
+El sistema funciona de la siguiente manera: cada tesoro tiene un **valor base**, y si le incrustamos **gemas de colores** (rojas, azules, verdes, amarillas y moradas), dicho valor se multiplica. El multiplicador final **no depende de la gema individual**, sino de la **combinación exacta** que formemos en los huecos del tesoro.
+
+Para calcular el valor final de un tesoro, aplicamos la siguiente fórmula:
+
+$$
+\text{Valor Final} = \text{Valor Base} \times \text{Multiplicador de Combinación}
+$$
+
+Por ejemplo, si incrustamos un **trío de gemas del mismo color** (ej. tres gemas rojas) en un tesoro, el multiplicador base del objeto se multiplicará por $1.4$:
+
+$$
+\text{Valor Final} = \text{Valor Base} \times 1.4
+$$
+
+#### Tabla de bonificaciones por combinación
+
+Aquí tienes las combinaciones más efectivas y sus multiplicadores, según el número de gemas y sus colores:
+
+| Combinación | Descripción | Ejemplo visual | Multiplicador |
+| :--- | :--- | :---: | :---: |
+| **Dos colores** | Dos gemas de colores diferentes | 🔴 🔵 | **x1.1** |
+| **Dúo** | Dos gemas del mismo color | 🔴 🔴 | **x1.2** |
+| **Tres colores** | Tres gemas de colores diferentes | 🔴 🔵 🟡 | **x1.3** |
+| **Trío** | Tres gemas del mismo color | 🔴 🔴 🔴 | **x1.4** |
+| **Dos dúos** | Dos parejas de gemas (ej. dos rojas y dos azules) | 🔴 🔴 🔵 🔵 | **x1.5** |
+| **Cuatro colores** | Cuatro gemas de colores diferentes | 🔴 🔵 🟡 🟢 | **x1.6** |
+| **Cuarteto** | Cuatro gemas del mismo color | 🔴 🔴 🔴 🔴 | **x1.7** |
+| **Dúo y trío** | Una pareja y un trío (ej. dos rojas y tres verdes) | 🔴 🔴 🟢 🟢 🟢 | **x1.8** |
+| **Quinteto** | Cinco gemas del mismo color | 🔴 🔴 🔴 🔴 🔴 | **x1.9** |
+| **Cinco colores** | Cinco gemas de colores diferentes | 🔴 🔵 🟡 🟢 🟣 | **x2.0** |
+
+> [!TIP]
+> **La regla de oro:** Las combinaciones de **5 gemas** son las que más rentabilidad te darán a largo plazo. Si vas a vender un tesoro con 5 huecos, intenta siempre formar un **Quinteto** (x1.9) o un **Cinco colores** (x2.0) para maximizar las pesetas. 
+> 
+> Ten en cuenta que las gemas de colores son un recurso limitado, por lo que a veces no podrás completar la combinación perfecta. En esos casos, prioriza no dejar huecos vacíos: cualquier multiplicador (incluso el x1.1) es mejor que dejar el tesoro sin gemas.
 
 ---
 
@@ -81,10 +123,10 @@ Llegar a esta sección nada más a principios del juego en modo profesional pued
        1. El Dr. Salvador que se puede triggerear al matar 10 enemigos.
             - Si tratas de hacerte el listillo e irte directamente al siguiente escenario (siguiendo el camino de la izquierda una vez sobrepasas la casa de la escopeta) este Dr. Salvador aparecerá por la puerta antes aunque no hayas matado a ningún enemigo.
          2. El Dr. Salvador que aparece una vez te metes en la casa de dos pisos (la casa de la escopeta).
-         3. El Dr. Salvador que aparece si te encuentras muy cerca de donde está la hierba roja marcada en el mapa **y** te atrapa un enemigo que se encuentra custodíandola.
+         3. El Dr. Salvador que aparece si te encuentras muy cerca de donde está la hierba roja marcada en el mapa **y** te atrapa un enemigo que se encuentra custodíandola.  
 
-     > [!TIP]
-     > Recomiendo solo activar 1 spawn de este enemigo, ya que llegar a spawnear 2 o incluso 3 será un total caos ya que es de los pocos enemigos que te puede hacer ***instakill***.
+> [!TIP]
+> Recomiendo solo activar 1 spawn de este enemigo, ya que llegar a spawnear 2 o incluso 3 será un total caos ya que es de los pocos enemigos que te puede hacer ***instakill***. 
 
    2. **Diagrama de flujo de recomendación de como moverse por el escenario**
     <!--Diagrama de flujo en donde detallo como más o menos hago yo mis runs en esta sección-->
@@ -149,21 +191,27 @@ Como ya se ha visto a lo largo de nuestras primeras partidas en este título, el
 mindmap
   root((Peticiones del Buhonero))
     El Pueblo
+      Medallones azules
       Se busca exterminador
       Cazador de víboras
       Destructor de tumbas
+      Medallones azules 2
       A la caza del huevo
       La buena pesca
       Un sabueso salvaje
+      Medallones azules 3
     El Castillo
+      Medallones azules 4
       Más exterminadores
       Caballero sin piedad
       El colmo de las colmenas
       Ladrón de joyas
       Muerte a los Salazar
-      Aún más exterminadores
     La Isla
+      Medallones azules 5
+      Aún más exterminadores
       Muerto deambulante
+      Medallones azules 6
 ```
 [detalles de cada petición aquí](https://vandal.elespanol.com/guias/guia-resident-evil-4-remake-trucos-consejos-y-secretos/peticiones)
 
@@ -254,6 +302,56 @@ gantt
     Rango S+                              :crit, k2, 04:27, 0m
 ```
 <!--La mayoría del cronometraje de este diagrama son estipulados y no totalmente reales ya que no guardo registro de mis tiempos por capítulo, pero el tiempo total si son 04:27-->
+
+##### ¿Por qué no compré lanzacohetes para Ramón Salazar?
+
+Una cosa a destacar de mi estrategia es que, a diferencia de lo que recomiendan otros jugadores, yo no uso ningún lanzacohetes contra Ramón y prefiero usarlo contra Krauser por comodidad. Y es que hay un pequeño detalle: Ramón es el único jefe en el juego que al lanzarle **2 huevos dorados** muere; de hecho, hay un logro que incentiva que hagas esto.
+
+###### ¿Pero cómo consigo un huevo? ¿Por qué no usas los 2?
+
+En mi caso solo me hice con 1 debido a que, como recomendé anteriormente, debemos priorizar a toda costa las peticiones del buhonero mientras estamos en el pueblo para que así nada más llegar al castillo podamos conseguir las **30 espinelas** necesarias para el ticket. Aunque si prefieres asegurarte de tener los 2 y no gastar ninguna bala o pesetas contra Ramón, puedes hacerlo de esta manera: solo podrás conseguir el ticket si haces la primera petición nada más llegar al castillo (la primera petición de Medallones Azules del castillo).
+
+Siguiendo con mi planteamiento, el segundo huevo dorado, el que vamos a usar, es el que se encuentra en la sala del trono de Ramón (la zona a la que tenemos que ir para completar la petición "Muerte a los Salazar"). En vez de dirigirnos allí para tirarle un huevo al cuadro, nos lo guardamos para usarlo contra el jefe.
+
+Una vez que entremos en la *boss fight*, nos aseguramos de equiparnos el huevo y se lo tiramos directamente en **la cara** para, además de hacerle ese daño masivo, inmovilizarlo los segundos necesarios para luego rematar con la ***Chicago Sweeper***.
+
+##### La matemática detrás de la estrategia
+
+Para entender por qué esta estrategia es tan eficiente (y por qué no hace falta gastar balas de más), podemos calcular exactamente cuánto daño hace un solo huevo y cuánto tarda la Chicago Sweeper en quitar el resto.
+
+Si Ramón tiene **35.400 puntos de vida** y el Huevo Dorado le quita exactamente el **70%** de la misma, el daño del huevo ($D_h$) se calcula así:
+
+$$
+D_h = V_t \times 0.70 = 35.400 \times 0.70 = 24.780 \text{ de daño}
+$$
+
+Esto significa que tras el impactazo en la cara, a Ramón le quedan exactamente **11.800 puntos de vida** (el 30% restante):
+
+$$
+S_r = 35.400 - 24.780 = 11.800 \text{ puntos de vida}
+$$
+
+Ahora, entramos en acción con la **Chicago Sweeper**. Teniendo en cuenta que tenemos el Ticket de mejora para munición infinita y estimamos que nos hemos asegurado de mejorar su potencia a 1.20 (es lo que recomiendo para matarlo antes de que nos empiece a atacar), calculamos su **Daño por Segundo (DPS)**:
+
+$$
+\text{DPS} = D_b \times \text{Multiplicador de mejora} \times \text{Cadencia de disparo}
+$$
+
+Suponiendo un daño base ($D_b$) de $70$ por bala y una cadencia de $15$ disparos por segundo:
+
+$$
+\text{DPS} = 70 \times 1.20 \times 15 = 1.260 \text{ de daño por segundo}
+$$
+
+Finalmente, el **tiempo de liquidación** ($T_l$) es el tiempo que tardamos en quitarle los 11.800 de vida restantes:
+
+$$
+T_l = \frac{S_r}{\text{DPS}} = \frac{11.800}{1.260} \approx 9.36 \text{ segundos}
+$$
+
+> [!NOTE]
+> Con esto, te ahorras 100.000 pesetas, que puedes usar más sabiamente para algún otro boss que te pueda resultar más complicado (ya que el número recomendado de lanzacohetes por run sería 2 como máximo) o usarlo para mejoras de otras armas como el cuchillo.
+
 Dicho esto, ***Resident Evil 4 Remake*** se puede considerar un juego al que le tienes que hechar bastantes horas comparados a otros de sus títulos, como ***Resident Evil Requiem*** que requiere de menos tiempo para platinar; pero no por ello lo hace imposible de completar, se consideraría un juego desafiante y que requiera de horas de juego, pero divertido en su proceso.
 
 Además de que una vez terminado, la comunidad de modding de este juego es bastante activa, como sucede como su versión original, por lo que una vez visto todo el contenido (incluyendo el DLC *Separate ways* que cuenta también con sus rangos de dificultad y clasificaciones; y el modo gratuito de mercenarios), puede que te guste lo que la comunidad pueda ofrecer, siempre que tengas ganas de más.
