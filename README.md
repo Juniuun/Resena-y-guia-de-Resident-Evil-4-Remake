@@ -126,14 +126,14 @@ Llegar a esta sección nada más a principios del juego en modo profesional pued
          3. El Dr. Salvador que aparece si te encuentras muy cerca de donde está la hierba roja marcada en el mapa **y** te atrapa un enemigo que se encuentra custodíandola.  
 
 > [!TIP]
-> Recomiendo solo activar 1 spawn de este enemigo, ya que llegar a spawnear 2 o incluso 3 será un total caos ya que es de los pocos enemigos que te puede hacer ***instakill***. 
+> Recomiendo solo activar 1 spawn de este enemigo, ya que llegar a spawnear 2 o incluso 3 será un total caos ya que es de los pocos enemigos que te puede hacer ***instakill***.
 
    2. **Diagrama de flujo de recomendación de como moverse por el escenario**
-    <!--Diagrama de flujo en donde detallo como más o menos hago yo mis runs en esta sección-->
+      <!--Diagrama de flujo en donde detallo como más o menos hago yo mis runs en esta sección-->
 
-     ```mermaid
-     flowchart TD
-        %%este diagrama está hecho dando por hecho de que no es la primera vez que has jugado esta sección y que has consultado el mapa
+      ```mermaid
+      flowchart TD
+         %%este diagrama está hecho dando por hecho de que no es la primera vez que has jugado esta sección y que has consultado el mapa
 
          A[Llego al nivel] --> B[Bordeo el escenario por el camino largo de la izquierda]
          B --> C[Sigo recto]
@@ -351,6 +351,8 @@ $$
 
 > [!NOTE]
 > Con esto, te ahorras 100.000 pesetas, que puedes usar más sabiamente para algún otro boss que te pueda resultar más complicado (ya que el número recomendado de lanzacohetes por run sería 2 como máximo) o usarlo para mejoras de otras armas como el cuchillo.
+
+---
 
 Dicho esto, ***Resident Evil 4 Remake*** se puede considerar un juego al que le tienes que hechar bastantes horas comparados a otros de sus títulos, como ***Resident Evil Requiem*** que requiere de menos tiempo para platinar; pero no por ello lo hace imposible de completar, se consideraría un juego desafiante y que requiera de horas de juego, pero divertido en su proceso.
 
