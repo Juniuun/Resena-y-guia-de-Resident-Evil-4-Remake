@@ -329,7 +329,6 @@ Llegar a esta sección nada más a principios del juego en modo profesional pued
          S1 --> T[Improviso hasta que suene la campana]
          S2 --> T
          
-[vídeo demostrativo aquí]()
 
 
 ### Peticiones del buhonero
